@@ -1,5 +1,9 @@
 package com.hackathon.cotato.hackathon.auth.service;
 
+import com.hackathon.cotato.hackathon.auth.dto.LoginRequestDto;
+import com.hackathon.cotato.hackathon.auth.dto.SignResponseDto;
+import com.hackathon.cotato.hackathon.member.domain.Member;
+import com.hackathon.cotato.hackathon.member.domain.MemberRepository;
 import com.pyeontect.auth.dto.LoginRequestDto;
 import com.pyeontect.auth.dto.SignResponseDto;
 import com.pyeontect.member.domain.Member;
@@ -32,8 +36,7 @@ public class LoginService {
         return SignResponseDto.builder()
                 .phone(member.getPhone())
                 .name(member.getName())
-                .role(member.getRole())
-                .token(jwtProvider.createAccessToken(member.getPhone(), member.getRole()))
+                .token(jwtProvider.createAccessToken(member.getPhone(), member.getName()))
                 .build();
     }
 }

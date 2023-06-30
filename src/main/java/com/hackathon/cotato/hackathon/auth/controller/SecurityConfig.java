@@ -94,8 +94,8 @@ public class SecurityConfig {
 }
 */
 
-import com.pyeontect.auth.service.JwtAuthenticationFilter;
-import com.pyeontect.auth.service.JwtProvider;
+import com.hackathon.cotato.hackathon.auth.service.JwtAuthenticationFilter;
+import com.hackathon.cotato.hackathon.auth.service.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

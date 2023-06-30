@@ -1,5 +1,6 @@
 package com.hackathon.cotato.hackathon.auth.service;
 
+import com.hackathon.cotato.hackathon.member.service.JpaUserDetailsService;
 import com.pyeontect.member.domain.Role;
 import com.pyeontect.member.service.JpaUserDetailsService;
 import io.jsonwebtoken.Claims;
@@ -7,6 +8,8 @@ import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import jakarta.annotation.PostConstruct;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -45,9 +48,9 @@ public class JwtProvider {
     }
     
     // access token 생성
-    public String createAccessToken(String phone, Role role) {
+    public String createAccessToken(String phone, String name) {
         Claims claims = Jwts.claims().setSubject(phone);
-        claims.put("role", role);
+        claims.put("name", name);
         Date now = new Date();
         return Jwts.builder()
                 .setClaims(claims)
