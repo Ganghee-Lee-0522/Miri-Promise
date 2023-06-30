@@ -17,11 +17,11 @@ import javax.persistence.*;
 public class MediList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false,name = "medilist_id")
+    @Column(name = "medilist_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(nullable = false,name = "member_id")
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @Column(nullable = false,name = "medilist_name")

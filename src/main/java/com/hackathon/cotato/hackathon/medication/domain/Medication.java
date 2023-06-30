@@ -31,7 +31,7 @@ public class Medication {
     private String time;
 
     @Column(nullable = false, name = "is_medi")
-    private boolean isMedi;
+    private Boolean isMedi;
 
     @ManyToOne
     @JoinColumn(name = "member_id")

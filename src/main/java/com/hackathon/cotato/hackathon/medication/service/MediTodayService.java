@@ -44,7 +44,7 @@ public class MediTodayService {
                     if(m.getDate().equals(formatedNow)) {
                         String medi_name = m.getDrug();
                         String medi_time = m.getTime();
-                        Boolean is_medi = m.isMedi();
+                        Boolean is_medi = m.getIsMedi();
                         MediListFormat mediListFormat = new MediListFormat(medi_name, medi_time, is_medi);
                         mediInfoList.add(mediListFormat);
                         cnt++;
@@ -74,7 +74,7 @@ public class MediTodayService {
                             if(m.getDate().equals(formatedNow)) {
                                 String medi_name = m.getDrug();
                                 String medi_time = m.getTime();
-                                Boolean is_medi = m.isMedi();
+                                Boolean is_medi = m.getIsMedi();
                                 MediListFormat mediListFormat = new MediListFormat(medi_name, medi_time, is_medi);
                                 mediInfoList.add(mediListFormat);
                             }
@@ -104,7 +104,7 @@ public class MediTodayService {
                     if(m.getDate().equals(date)) {
                         String medi_name = m.getDrug();
                         String medi_time = m.getTime();
-                        Boolean is_medi = m.isMedi();
+                        Boolean is_medi = m.getIsMedi();
                         MediListFormat mediListFormat = new MediListFormat(medi_name, medi_time, is_medi);
                         mediInfoList.add(mediListFormat);
                         cnt++;
