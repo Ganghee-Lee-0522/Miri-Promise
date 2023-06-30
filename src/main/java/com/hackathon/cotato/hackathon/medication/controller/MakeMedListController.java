@@ -30,4 +30,5 @@ public class MakeMedListController {
         }
         return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Register medicine successfully."));
     }
+
 }
