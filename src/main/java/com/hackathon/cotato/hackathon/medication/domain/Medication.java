@@ -1,5 +1,6 @@
 package com.hackathon.cotato.hackathon.medication.domain;
 
+import com.hackathon.cotato.hackathon.member.domain.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,21 @@ public class Medication {
     @Column(name = "medi_id")
     private Long id;
 
+    @Column(nullable = false, name = "medi_name")
+    private String drug;
+
     @Column(nullable = false, name = "medi_date")
-    private
+    private String date;
+
+    @Column(nullable = false, name = "medi_time")
+    private String time;
+
+    @Column(nullable = false, name = "is_medi")
+    private boolean isMedi;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+
 }
