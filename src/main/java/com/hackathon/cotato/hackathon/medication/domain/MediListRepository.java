@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface MediListRepository extends JpaRepository<MediList, Long> {
     List<MediList> findByMember(Optional<Member> member);
+
 }

@@ -18,5 +18,4 @@ public class MakeMediListRequestDto {
 
     @NotBlank(message = "There is no medication time")
     private String medi_time;
-
 }
