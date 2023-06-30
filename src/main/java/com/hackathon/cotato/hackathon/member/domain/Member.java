@@ -1,6 +1,5 @@
 package com.hackathon.cotato.hackathon.member.domain;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

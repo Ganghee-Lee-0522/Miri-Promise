@@ -1,15 +1,11 @@
 package com.hackathon.cotato.hackathon.auth.service;
 
 import com.hackathon.cotato.hackathon.member.service.JpaUserDetailsService;
-import com.pyeontect.member.domain.Role;
-import com.pyeontect.member.service.JpaUserDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import jakarta.annotation.PostConstruct;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

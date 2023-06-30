@@ -1,13 +1,7 @@
 package com.hackathon.cotato.hackathon.member.controller;
 
 import com.hackathon.cotato.hackathon.common.ResponseDto;
-import com.hackathon.cotato.hackathon.member.dto.ChangeRoleDto;
-import com.hackathon.cotato.hackathon.member.dto.PatchRequestDto;
 import com.hackathon.cotato.hackathon.member.service.MemberService;
-import com.pyeontect.common.ResponseDto;
-import com.pyeontect.member.dto.ChangeRoleDto;
-import com.pyeontect.member.dto.PatchRequestDto;
-import com.pyeontect.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
