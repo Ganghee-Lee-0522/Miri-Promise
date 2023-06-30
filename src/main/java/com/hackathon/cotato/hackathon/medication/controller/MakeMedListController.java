@@ -24,8 +24,7 @@ public class MakeMedListController {
     @PostMapping("/new")
     public ResponseEntity<ResponseDto<Object>> makeMediList(@RequestBody MakeMediListRequestDto request) throws Exception {
         try {
-            //return new ResponseEntity<>(signUpService.register(request), HttpStatus.OK);
-            NewMediService.registernewmedi(request);
+            boolean register_medi=newMediService.registernewmedi(request);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, e.getMessage()));
         }

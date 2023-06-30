@@ -1,7 +1,9 @@
 package com.hackathon.cotato.hackathon.medication.service;
 
 import com.hackathon.cotato.hackathon.medication.domain.MediList;
+import com.hackathon.cotato.hackathon.medication.domain.MediListRepository;
 import com.hackathon.cotato.hackathon.medication.domain.Medication;
+import com.hackathon.cotato.hackathon.medication.domain.MedicationRepository;
 import com.hackathon.cotato.hackathon.medication.dto.MakeMediListRequestDto;
 import com.hackathon.cotato.hackathon.member.domain.Member;
 import com.hackathon.cotato.hackathon.member.domain.MemberRepository;
@@ -44,7 +46,7 @@ public class NewMediService {
             medicationRepository.save(medication);
 
             MediList mediList=MediList.builder()
-                    .member()
+                    .member(findmember.get())
                     .drug(request.getMedi_name())
                     .time(request.getMedi_time())
                     .build();
