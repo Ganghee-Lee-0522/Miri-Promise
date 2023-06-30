@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/signup")
+@RequestMapping("/miri-promise/member/signup")
 public class SignUpController {
 
     private final SignUpService signUpService;
@@ -32,6 +32,7 @@ public class SignUpController {
         return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Sign up successfully."));
     }
 
+    // 프론트에서 해당 기능 안쓴다고 함
     @PostMapping("/verify")
     public ResponseEntity<?> verifyPhone(@RequestBody LoginRequestDto loginRequestDto) {
         if (memberService.isPhoneDuplicate(loginRequestDto.getPhone())) {
@@ -40,38 +41,4 @@ public class SignUpController {
 
         return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.OK, "Unique phone number."));
     }
-
-    //private final MemberService memberService;
-//    private final SignUpService signUpService;
-
-
-
-    /*
-     * phone 파라미터로 전화번호 중복여부를 체크하여 반환하는 함수
-     */
-    /*
-    @PostMapping("/verify")
-    public ResponseEntity verifyPhoneNum(@RequestParam("phone") VerifyRequestDto requestDto) {
-        if(signUpService.verifyPhoneNum(requestDto)) {
-            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.CONFLICT, "Phone number that already exists"));
-            //return ResponseEntity.status(HttpStatus.CONFLICT).body("Phone number that already exists");
-        }
-        else {
-            return ResponseEntity.noContent().build();
-        }
-    }
-
-    @PostMapping("/submit")
-    public ResponseEntity signUp(@RequestBody SignUpRequestDto requestDto) {
-        try {
-            signUpService.signUp(requestDto);
-            return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Sign up successfully"));
-            //return ResponseEntity.status(HttpStatus.CREATED).body("Sign up successfully");
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, e.getMessage()));
-            //return ResponseEntity.internalServerError().body(ResponseDto.response(HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error"));
-            //return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
-        }
-    }
-     */
 }

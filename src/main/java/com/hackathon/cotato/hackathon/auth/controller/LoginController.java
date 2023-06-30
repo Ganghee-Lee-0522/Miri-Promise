@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/login")
+@RequestMapping("miri-promise/member")
 public class LoginController {
     private final LoginService loginService;
 
-    @PostMapping("/ptect")
+    @PostMapping("/login")
     public ResponseEntity<SignResponseDto> signIn(@RequestBody LoginRequestDto requestDto) throws Exception {
-        return new ResponseEntity<>(loginService.ptectLogin(requestDto), HttpStatus.OK);
+        return new ResponseEntity<>(loginService.getLogin(requestDto), HttpStatus.OK);
     }
 
 }

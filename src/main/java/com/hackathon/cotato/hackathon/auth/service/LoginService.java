@@ -21,7 +21,7 @@ public class LoginService {
     private final PasswordEncoder passwordEncoder;
     private final JwtProvider jwtProvider;
 
-    public SignResponseDto ptectLogin(LoginRequestDto requestDto) throws Exception {
+    public SignResponseDto getLogin(LoginRequestDto requestDto) throws Exception {
         Member member = memberRepository.findByPhone(requestDto.getPhone()).orElseThrow(() ->
                 new BadCredentialsException("Invalid account information."));
 

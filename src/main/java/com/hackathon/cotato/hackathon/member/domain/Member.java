@@ -37,19 +37,4 @@ public class Member {
         this.phone = phone;
         this.password = password;
     }
-
-    public Member updateName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public Member updatePhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    public Member updatePassword(String password) {
-        this.password = password;
-        return this;
-    }
 }
