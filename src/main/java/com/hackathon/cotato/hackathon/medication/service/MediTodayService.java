@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -32,12 +34,19 @@ public class MediTodayService {
                 List<Medication> medi = medicationRepository.findByMember(member);
                 List<MediListFormat> mediInfoList = new ArrayList<>();
 
+                // 오늘 날짜 구하기
+                LocalDate now = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+                String formatedNow = now.format(formatter);
+
                 for(Medication m : medi) {
-                    String medi_name = m.getDrug();
-                    String medi_time = m.getTime();
-                    Boolean is_medi = m.isMedi();
-                    MediListFormat mediListFormat = new MediListFormat(medi_name, medi_time, is_medi);
-                    mediInfoList.add(mediListFormat);
+                    if(m.getDate().equals(formatedNow)) {
+                        String medi_name = m.getDrug();
+                        String medi_time = m.getTime();
+                        Boolean is_medi = m.isMedi();
+                        MediListFormat mediListFormat = new MediListFormat(medi_name, medi_time, is_medi);
+                        mediInfoList.add(mediListFormat);
+                    }
                 }
                 return new TodayInfoRequestDto(mediInfoList);
             }
