@@ -22,9 +22,9 @@ public class MediCheckController {
         try {
             boolean medi_check=mediCheckService.medicinecheck(request);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, e.getMessage()));
+            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, "Internal Server Error"));
         }
-        return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Register medicine successfully."));
+        return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Medication information has been successfully reflected."));
     }
 
 }

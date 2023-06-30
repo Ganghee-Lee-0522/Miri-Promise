@@ -24,9 +24,9 @@ public class DelteMediListController {
         try {
             boolean delete_medi_check=deleteMediService.deletemedi(request);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, e.getMessage()));
+            return ResponseEntity.badRequest().body(ResponseDto.response(HttpStatus.BAD_REQUEST, "Internal Server Error"));
         }
-        return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Register medicine successfully."));
+        return ResponseEntity.ok().body(ResponseDto.response(HttpStatus.CREATED, "Medication information is deleted."));
     }
 
 }
