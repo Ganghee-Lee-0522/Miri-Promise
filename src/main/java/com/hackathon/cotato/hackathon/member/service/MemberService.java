@@ -1,10 +1,8 @@
 package com.hackathon.cotato.hackathon.member.service;
 
-import com.pyeontect.member.domain.Member;
-import com.pyeontect.member.domain.MemberRepository;
-import com.pyeontect.member.dto.ChangeRoleDto;
-import com.pyeontect.member.dto.GetMemberInfoDto;
-import com.pyeontect.member.dto.PatchRequestDto;
+import com.hackathon.cotato.hackathon.member.domain.Member;
+import com.hackathon.cotato.hackathon.member.domain.MemberRepository;
+import com.hackathon.cotato.hackathon.member.dto.GetMemberInfoDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,51 +33,5 @@ public class MemberService {
         Member member = memberRepository.findByPhone(phone)
                 .orElseThrow(() -> new Exception("Account not found."));
         return new GetMemberInfoDto(member);
-    }
-
-    public String changeRole(ChangeRoleDto changeRoleDto) throws Exception {
-        Member member = memberRepository.findByPhone(changeRoleDto.getPhone())
-                .orElseThrow(() -> new Exception("Account not found."));
-        log.info(member.getRoleKey());
-        String newRole = member.updateRole(changeRoleDto.getRoleKey());
-        log.info(newRole);
-
-        return newRole;
-    }
-
-    public String changeName(PatchRequestDto patchRequestDto) throws Exception {
-        Member member = memberRepository.findByPhone(patchRequestDto.getPhone())
-                .orElseThrow(() -> new Exception("Account not found."));
-        try {
-            member.updateName(patchRequestDto.getName());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        return member.getName();
-    }
-
-    public String changePhone(PatchRequestDto patchRequestDto) throws Exception {
-        Member member = memberRepository.findByPhone(patchRequestDto.getPhone())
-                .orElseThrow(() -> new Exception("Account not found."));
-        try {
-            member.updatePhone(patchRequestDto.getPhone());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        return member.getPhone();
-    }
-
-    public String changePassword(PatchRequestDto patchRequestDto) throws Exception {
-        Member member = memberRepository.findByPhone(patchRequestDto.getPhone())
-                .orElseThrow(() -> new Exception("Account not found."));
-        try {
-            member.updatePassword(passwordEncoder.encode(patchRequestDto.getPassword()));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        return member.getPhone();
     }
 }

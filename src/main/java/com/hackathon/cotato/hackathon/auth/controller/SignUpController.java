@@ -1,10 +1,10 @@
 package com.hackathon.cotato.hackathon.auth.controller;
 
-import com.pyeontect.auth.dto.LoginRequestDto;
-import com.pyeontect.auth.dto.SignRequestDto;
-import com.pyeontect.auth.service.SignUpService;
-import com.pyeontect.common.ResponseDto;
-import com.pyeontect.member.service.MemberService;
+import com.hackathon.cotato.hackathon.auth.dto.LoginRequestDto;
+import com.hackathon.cotato.hackathon.auth.dto.SignRequestDto;
+import com.hackathon.cotato.hackathon.auth.service.SignUpService;
+import com.hackathon.cotato.hackathon.common.ResponseDto;
+import com.hackathon.cotato.hackathon.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

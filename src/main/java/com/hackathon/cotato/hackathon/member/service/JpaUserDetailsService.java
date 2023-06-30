@@ -1,8 +1,8 @@
 package com.hackathon.cotato.hackathon.member.service;
 
-import com.pyeontect.member.domain.CustomUserDetails;
-import com.pyeontect.member.domain.Member;
-import com.pyeontect.member.domain.MemberRepository;
+import com.hackathon.cotato.hackathon.member.domain.CustomUserDetails;
+import com.hackathon.cotato.hackathon.member.domain.Member;
+import com.hackathon.cotato.hackathon.member.domain.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

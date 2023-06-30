@@ -42,11 +42,10 @@ public class SignUpService {
     }
 }
 */
-import com.pyeontect.auth.dto.SignRequestDto;
-import com.pyeontect.member.domain.Member;
-import com.pyeontect.member.domain.MemberRepository;
-import com.pyeontect.member.domain.Role;
-import com.pyeontect.member.service.MemberService;
+import com.hackathon.cotato.hackathon.auth.dto.SignRequestDto;
+import com.hackathon.cotato.hackathon.member.domain.Member;
+import com.hackathon.cotato.hackathon.member.domain.MemberRepository;
+import com.hackathon.cotato.hackathon.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -73,7 +72,6 @@ public class SignUpService {
                     .phone(request.getPhone())
                     .name(request.getName())
                     .password(passwordEncoder.encode(request.getPassword()))
-                    .role(Role.GUEST) // 첫 가입 시에는 자동 GUEST 권한 부여
                     .build();
 
             memberRepository.save(member);
