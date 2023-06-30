@@ -37,5 +37,13 @@ public class Medication {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    public Medication updateIsMedi(Medication medication) throws Exception{
+        if(isMedi==false){
+            this.isMedi=true;
+        } else {
+            this.isMedi=false;
+        }
+        return this;
+    }
 
 }

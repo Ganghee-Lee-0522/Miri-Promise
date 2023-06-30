@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface MedicationRepository extends JpaRepository<Medication, Long> {
     List<Medication> findByMember(Optional<Member> member);
+    Optional<Medication> findByMemberAndDrugAndTime(Optional<Member> member,String drug,String time);
 }
